@@ -1,0 +1,109 @@
+<div class="product-wrapper">
+  <form [formGroup]="productForm">
+    <h1 style="text-align: center">{{ mode.toUpperCase() }}</h1>
+
+    <label>
+      <h2>Code</h2>
+      <input
+        type="text"
+        formControlName="code"
+        placeholder="e.g. ABCD 1111"
+        class="product-form-input"
+        [attr.readonly]="mode === 'update' ? true : null"
+        onkeyup="this.value = this.value.toUpperCase();"
+      />
+      <div
+        *ngIf="
+          productForm.controls['code'].invalid &&
+          (productForm.controls['code'].dirty ||
+            productForm.controls['code'].touched)
+        "
+      >
+        <div
+          class="input-error"
+          *ngIf="productForm.controls['code'].errors?.['required']"
+        >
+          <p>Code is required</p>
+        </div>
+        <div
+          class="input-error"
+          *ngIf="productForm.controls['code'].errors?.['pattern']"
+        >
+          <p>Invalid string format. Example: MYTZ 123456 or MY 3247]</p>
+        </div>
+      </div>
+    </label>
+
+    <label>
+      <h2>Quantity</h2>
+      <input
+        type="text"
+        formControlName="quantity"
+        placeholder="e.g. 1000"
+        class="product-form-input"
+      />
+      <div
+        *ngIf="
+          productForm.controls['quantity'].invalid &&
+          (productForm.controls['quantity'].dirty ||
+            productForm.controls['quantity'].touched)
+        "
+      >
+        <div
+          class="input-error"
+          *ngIf="productForm.controls['quantity'].errors?.['required']"
+        >
+          <p>Code is required</p>
+        </div>
+        <div
+          class="input-error"
+          *ngIf="productForm.controls['quantity'].errors?.['pattern']"
+        >
+          <p>Insert valid number</p>
+        </div>
+      </div>
+    </label>
+
+    <label>
+      <h2>Floor</h2>
+      <div class="select-wrapper">
+        <select
+          id="floors"
+          name="floors"
+          class="product-form-input"
+          formControlName="floor"
+        >
+          <option [value]="null" [disabled]="true">Select floor</option>
+          <option *ngFor="let floor of floors" [ngValue]="floor">
+            {{ floor }}
+          </option>
+        </select>
+      </div>
+    </label>
+
+    <label>
+      <h2>Section</h2>
+      <div class="select-wrapper">
+        <select
+          id="sections"
+          name="sections"
+          class="product-form-input"
+          formControlName="section"
+        >
+          <option [value]="null" [disabled]="true">Select section</option>
+          <option *ngFor="let section of sections" [ngValue]="section">
+            {{ section }}
+          </option>
+        </select>
+      </div>
+    </label>
+
+    <button
+      (click)="saveChanges()"
+      [disabled]="!productForm.valid"
+      class="save-changes-btn"
+    >
+      Save changes
+    </button>
+  </form>
+</div>

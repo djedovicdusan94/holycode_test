@@ -1,0 +1,31 @@
+.product-item {
+  border: 2px solid #ebebeb;
+  text-align: left;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 15px;
+  background: white;
+  a {
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  .update-product-btn {
+    cursor: pointer;
+    color: dodgerblue;
+  }
+  .delete-product-btn {
+    cursor: pointer;
+    color: crimson;
+  }
+  h2,
+  .quantity,
+  .location {
+    margin: 0 0 9px 0;
+  }
+  .quantity {
+    font-size: 21px;
+  }
+  .location {
+    font-size: 21px;
+  }
+}

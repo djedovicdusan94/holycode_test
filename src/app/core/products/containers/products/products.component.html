@@ -1,0 +1,28 @@
+<div class="products-wrapper">
+  <div class="filters-wrapper">
+    <div class="filters-inner">
+      <app-filters
+        (filters)="filterChanged($event)"
+        (reset)="loadProducts()"
+      ></app-filters>
+      <app-location-form></app-location-form>
+    </div>
+  </div>
+  <div class="collection-wrapper">
+    <div class="collection-inner">
+      <a (click)="router.navigate(['products', 'add-new'])" class="add-new-btn"
+        >Add new</a
+      >
+      <div class="no-products-info" *ngIf="!(products$ | async)?.length">
+        No products, add one to get started.
+      </div>
+      <product-item
+        *ngFor="let product of products$ | async"
+        [product]="product"
+        (productToEdit)="router.navigate(['products', product.code])"
+        (productToDelete)="deleteProduct(product)"
+      >
+      </product-item>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="filters-wrapper">
+  <div class="code">
+    <label>Code</label>
+    <input
+      placeholder="Code"
+      [(ngModel)]="filtersObj.code"
+      (input)="onChange()"
+    />
+  </div>
+  <div class="floor">
+    <label>Floor</label>
+    <div>
+      <select
+        name="floors"
+        id="floors"
+        [(ngModel)]="filtersObj.floor"
+        (change)="onChange()"
+      >
+        <option value="undefined" disabled>Floor</option>
+        <option *ngFor="let floor of floors" [ngValue]="floor">
+          {{ floor }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="section">
+    <label>Section</label>
+    <div>
+      <select
+        name="sections"
+        id="sections"
+        [(ngModel)]="filtersObj.section"
+        (change)="onChange()"
+      >
+        <option value="undefined" disabled data-default>Section</option>
+        <option *ngFor="let section of sections" [ngValue]="section">
+          {{ section }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="reset-filters">
+    <a (click)="resetFilters()" class="reset-filters-btn">Reset</a>
+  </div>
+</div>

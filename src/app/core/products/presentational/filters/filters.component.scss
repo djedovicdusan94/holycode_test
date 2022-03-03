@@ -1,0 +1,49 @@
+.filters-wrapper {
+  .code,
+  .floor,
+  .section {
+    margin-bottom: 15px;
+    label {
+      display: block;
+      margin-bottom: 6px;
+    }
+    input,
+    select {
+      border: 0;
+      margin: 0;
+      padding: 3px;
+      outline: 0;
+      width: 100%;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 600;
+      background: #ffffff;
+      border: 1px solid transparent;
+    }
+    input {
+      width: 100%;
+    }
+    input::placeholder {
+      color: black;
+    }
+    select {
+      width: 100%;
+    }
+  }
+  .reset-filters {
+    margin-bottom: 15px;
+    text-align: center;
+    .reset-filters-btn {
+      background-color: dodgerblue;
+      border: none;
+      color: white;
+      padding: 12px 21px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+}

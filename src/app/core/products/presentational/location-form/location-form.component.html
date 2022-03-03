@@ -1,0 +1,66 @@
+<div class="filters-form-wrapper">
+  <hr />
+  <h4>Add new location</h4>
+  <form [formGroup]="locationForm">
+    <div class="floor">
+      <label>Floor</label>
+      <input placeholder="Floor" formControlName="floor" />
+    </div>
+    <div
+      *ngIf="
+        locationForm.controls['floor'].invalid &&
+        (locationForm.controls['floor'].dirty ||
+          locationForm.controls['floor'].touched)
+      "
+    >
+      <div
+        class="input-error"
+        *ngIf="locationForm.controls['floor'].errors?.['required']"
+      >
+        <p>Floor is required</p>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="locationForm.controls['floor'].errors?.['pattern']"
+      >
+        <p>Insert valid number</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <label>Section</label>
+      <input placeholder="Section" formControlName="section" />
+    </div>
+    <div
+      *ngIf="
+        locationForm.controls['section'].invalid &&
+        (locationForm.controls['section'].dirty ||
+          locationForm.controls['section'].touched)
+      "
+    >
+      <div
+        class="input-error"
+        *ngIf="locationForm.controls['section'].errors?.['required']"
+      >
+        <p>Section is required</p>
+      </div>
+      <div
+        class="input-error"
+        *ngIf="locationForm.controls['section'].errors?.['pattern']"
+      >
+        <p>Insert valid number</p>
+      </div>
+    </div>
+
+    <div class="buttons-wrapper">
+      <button
+        type="button"
+        class="save-changes-btn"
+        (click)="saveChanges()"
+        [disabled]="!locationForm.valid"
+      >
+        Create location
+      </button>
+    </div>
+  </form>
+</div>
